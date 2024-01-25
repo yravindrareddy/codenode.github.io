@@ -81,7 +81,12 @@ const getWeatherDetails = (cityName, lat, lon) => {
 const getCityCoordinates = () => {
   const cityName = cityInput.value.trim();
   if (!cityName) return;
-  const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
+  if (location.protocol === "http:") {
+    const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
+  } else {
+    const GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
+  }
+  //const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
   //const GEOCODING_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&limit=1&appid=${API_Key}`;
   //http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}
   //https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
