@@ -7,7 +7,7 @@ const currentWeatherCardsDiv = document.querySelector(".current-weather");
 const weatherCardsDiv = document.querySelector(".weather-cards");
 
 const API_Key = "f2df931cb40d99fb0a78202dfd88758d";
-
+let GEOCODING_API_URL = "";
 const createWeatherCard = (cityName, weatherItem, index) => {
   if (index === 0) {
     return `<div class="details">
@@ -82,9 +82,9 @@ const getCityCoordinates = () => {
   const cityName = cityInput.value.trim();
   if (!cityName) return;
   if (location.protocol === "http:") {
-    const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
+    GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
   } else {
-    const GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
+    GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
   }
   //const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_Key}`;
   //const GEOCODING_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&limit=1&appid=${API_Key}`;
