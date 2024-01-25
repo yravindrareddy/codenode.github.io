@@ -8,6 +8,7 @@ const weatherCardsDiv = document.querySelector(".weather-cards");
 
 const API_Key = "f2df931cb40d99fb0a78202dfd88758d";
 let GEOCODING_API_URL = "";
+let REVERSE_GEOCODING_URL="";
 const createWeatherCard = (cityName, weatherItem, index) => {
   if (index === 0) {
     return `<div class="details">
