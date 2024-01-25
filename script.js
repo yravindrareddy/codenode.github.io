@@ -116,7 +116,7 @@ const getUserCoordinates = () => {
       //const REVERSE_GEOCODING_URL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_Key}`;
       //api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={API key}
       //console.log(position);
-      http: fetch(REVERSE_GEOCODING_URL)
+      fetch(REVERSE_GEOCODING_URL)
         .then((res) => res.json())
         .then((data) => {
           const { name } = data[0];
